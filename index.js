@@ -61,6 +61,10 @@ function setup (superagent, uri) {
 function proxy (uri) {
   debug('Request#proxy(%o)', uri);
 
+  if (!uri) {
+    return this; 
+  }
+  
   // we need to observe the `url` field from now on... Superagent sometimes
   // re-uses the `req` instance but changes its `url` field (i.e. in the case of
   // a redirect), so when that happens we need to potentially re-set the proxy
