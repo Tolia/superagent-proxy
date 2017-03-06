@@ -61,7 +61,7 @@ function setup (superagent, uri) {
 function proxy (uri) {
   debug('Request#proxy(%o)', uri);
 
-  if (!uri) {
+  if (!uri || Object.keys(uri).length == 0) {
     return this; 
   }
   
